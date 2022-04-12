@@ -35,7 +35,7 @@ public class SpringBootJpaTestSlice {
 
         long countBefore = bookRepository.count();
 
-        bookRepository.save(new Book("my book", "341321", "self"));
+        bookRepository.save(new Book("my book", "341321", "self", null));
 
         long countAfter = bookRepository.count();
 
