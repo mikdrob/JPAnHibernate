@@ -3,6 +3,7 @@ package com.example.demo.domain;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Objects;
 
 public class Author {
     @Id
@@ -15,7 +16,7 @@ public class Author {
 
     public Author() {}
 
-    public Author(Long id, String firstName, String lastName) {
+    public Author(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
@@ -52,7 +53,7 @@ public class Author {
 
         Author author = (Author) o;
 
-        return id != null ? id.equals(author.id) : author.id == null;
+        return Objects.equals(id, author.id);
     }
 
     @Override
