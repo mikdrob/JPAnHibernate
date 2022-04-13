@@ -12,7 +12,7 @@ import org.springframework.test.context.ActiveProfiles;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-@ActiveProfiles("local")
+//@ActiveProfiles("local")
 @DataJpaTest
 @ComponentScan(basePackages = {"com.example.demo.bootstrap"})
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)

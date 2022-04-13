@@ -2,6 +2,7 @@ package com.example.demo;
 
 
 import com.example.demo.domain.Book;
+import com.example.demo.repository.AuthorUuidRepository;
 import com.example.demo.repository.BookRepository;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -26,6 +27,9 @@ public class SpringBootJpaTestSlice {
     @Autowired
     BookRepository bookRepository;
 
+    @Autowired
+    AuthorUuidRepository authorUuidRepository;
+
 
 //    @Rollback(value = false)
     @Commit
@@ -46,9 +50,24 @@ public class SpringBootJpaTestSlice {
 
     @Order(2)
     @Test
-    void testJpaTestSpliceTransaction(){
+    void testJpaTestSpliceBookTransaction(){
         long countBefore = bookRepository.count();
         assertThat(countBefore).isEqualTo(3);
+    }
+
+    @Order(3)
+    @Test
+    void testJpaTestSpliceAuthorTransaction(){
+        long countBefore = authorUuidRepository.count();
+        assertThat(countBefore).isEqualTo(1);
+    }
+
+    @Order(4)
+    @Test
+    void testJpaTestSpliceAuthorFindById(){
+        authorUuidRepository.findAll().forEach(authorUuid -> {
+            assertThat(authorUuidRepository.getById(authorUuid.getId())).isNotNull();
+        });
     }
 
 }

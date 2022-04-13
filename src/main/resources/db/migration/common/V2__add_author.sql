@@ -14,7 +14,7 @@ create table author
     primary key (id)
 ) engine=InnoDB;
 
--- ALTER TABLE book ADD CONSTRAINT fk_author_id FOREIGN KEY (author_id) REFERENCES author(id);
+ALTER TABLE book ADD CONSTRAINT fk_author_id FOREIGN KEY (author_id) REFERENCES author(id);
 
 
 
