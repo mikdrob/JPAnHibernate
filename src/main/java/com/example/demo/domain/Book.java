@@ -13,18 +13,20 @@ public class Book {
     private String title;
     private String isbn;
     private String publisher;
-    private Long authorId;
+    @ManyToOne
+    @JoinColumn(name = "author_id")
+    private Author author;
 
     public Book() {
 
     }
 
 
-    public Book(String title, String isbn, String publisher, Long authorId) {
+    public Book(String title, String isbn, String publisher, Author author) {
         this.title = title;
         this.isbn = isbn;
         this.publisher = publisher;
-        this.authorId = authorId;
+        this.author = author;
     }
 
     public Long getId() {
@@ -74,11 +76,11 @@ public class Book {
         return id != null ? id.hashCode() : 0;
     }
 
-    public Long getAuthorId() {
-        return authorId;
+    public Author getAuthor() {
+        return author;
     }
 
-    public void setAuthorId(Long authorId) {
-        this.authorId = authorId;
+    public void setAuthor(Author authorId) {
+        this.author = authorId;
     }
 }

@@ -11,13 +11,10 @@ drop table if exists hibernate_sequence;
 
 create table book
 (
-    id        bigint not null,
+    id        bigint not null auto_increment primary key,
     isbn      varchar(255),
     publisher varchar(255),
-    title     varchar(255),
---     author_id bigint,
-    primary key (id)
---     foreign key (author_id) REFERENCES author (author_id)
+    title     varchar(255)
 ) engine=InnoDB;
 
 create table hibernate_sequence
