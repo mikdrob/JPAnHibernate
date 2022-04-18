@@ -6,6 +6,13 @@ import org.springframework.stereotype.Repository;
 import java.sql.SQLException;
 
 public interface AuthorDao {
-    Author getById(Long id) throws SQLException;
-    Author getByName(String firstName, String lastName) throws SQLException;
+    Author getById(Long id);
+
+    Author findAuthorByName(String firstName, String lastName);
+
+    Author saveNewAuthor(Author author);
+
+    Author updateAuthor(Author author);
+
+    void deleteAuthorById(Long id);
 }
